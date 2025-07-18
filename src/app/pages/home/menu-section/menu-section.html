@@ -1,0 +1,100 @@
+<section id="cardapio" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-extrabold text-center text-pink-600 mb-14">
+      Nosso Cardápio
+    </h2>
+
+    <div
+      *ngFor="let group of chunkProducts(3)"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12"
+    >
+      <div
+        *ngFor="let product of group"
+        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
+      >
+        <div class="relative h-64 group">
+          <img
+            [src]="'assets/images/' + product.image"
+            alt="{{ product.name }}"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition flex items-center justify-center"
+          >
+            <button
+              (click)="openProductModal(product)"
+              class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full transition"
+            >
+              Detalhes
+            </button>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-pink-600 mb-2">
+            {{ product.name }}
+          </h3>
+          <p class="text-gray-600 mb-4">{{ product.description }}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-2xl font-bold text-amber-600">
+              R$ {{ product.price | number:'1.2-2' }}
+            </span>
+            <button
+              class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-2 px-4 rounded-full transition"
+            >
+              <i class="fas fa-shopping-cart mr-2"></i> Encomendar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a
+        [routerLink]="['/encomendas']"
+        class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition"
+      >
+        Ver Cardápio Completo
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal de Detalhes -->
+  <div
+    *ngIf="selectedProduct"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  >
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
+      <button
+        class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+        (click)="closeProductModal()"
+      >
+        ×
+      </button>
+      <img
+        [src]="'assets/images/' + selectedProduct.image"
+        alt="{{ selectedProduct.name }}"
+        class="w-full h-56 object-cover rounded-md mb-4"
+      />
+      <h3 class="text-2xl font-bold text-pink-600 mb-2">
+        {{ selectedProduct.name }}
+      </h3>
+      <p class="text-gray-700 mb-2">{{ selectedProduct.description }}</p>
+      <p class="text-gray-600 mb-2">
+        <strong>Serve:</strong> {{ selectedProduct.servings }} pessoas
+      </p>
+      <div class="mt-4 text-sm text-gray-500 italic">
+        Produzido com ingredientes frescos e técnicas artesanais.
+      </div>
+      <div class="mt-6 text-right">
+        <span class="text-xl font-bold text-amber-600 mr-4">
+          R$ {{ selectedProduct.price | number:'1.2-2' }}
+        </span>
+        <button
+          class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-2 px-4 rounded-full transition"
+        >
+          Encomendar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

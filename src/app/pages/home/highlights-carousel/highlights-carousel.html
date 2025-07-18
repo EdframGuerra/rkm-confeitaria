@@ -15,7 +15,7 @@
 
   <!-- Indicadores -->
   <div class="absolute bottom-4 w-full flex justify-center gap-2 z-20">
-    <div *ngFor="let _, i of images; index as index"
+    <div *ngFor="let i of images; index as index"
          (click)="goToSlide(index)"
          class="carousel-indicator w-3 h-3 rounded-full cursor-pointer"
          [ngClass]="{

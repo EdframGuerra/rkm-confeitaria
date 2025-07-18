@@ -4,19 +4,21 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing-module';
 import { Home } from './home';
 import { HighlightsCarousel } from './highlights-carousel/highlights-carousel';
+import { MenuSection } from './menu-section/menu-section';
 
 
 @NgModule({
   declarations: [
     Home,
-    HighlightsCarousel
+    HighlightsCarousel   
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule   
   ],
   exports: [
-    HighlightsCarousel
+    HighlightsCarousel,
+    MenuSection
   ]
 })
 export class HomeModule { }
