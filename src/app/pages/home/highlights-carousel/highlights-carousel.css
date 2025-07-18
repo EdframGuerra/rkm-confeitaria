@@ -9,7 +9,7 @@
   margin-left: auto; /* Centraliza horizontalmente */
   margin-right: auto; /* Centraliza horizontalmente */
   overflow: hidden;
-  border-radius: 1rem; /* rounded-2xl */  
+  border-radius: 1rem; /* rounded-2xl */
  }
 
 .carousel-container { /* Este é o div com as classes Tailwind no HTML */
