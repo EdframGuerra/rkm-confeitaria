@@ -9,14 +9,15 @@ import { Router } from '@angular/router';
 })
 export class HighlightsCarousel implements OnInit, OnDestroy {
   images: string[] = [
-    'bolo-brigadeiro.png',
-    'bolo-brigadeiro2.png',
-    'bolo-de-doce-de-leite.png',
-    'bolo-dois-amores.png',
-    'bolo-gateus-mouse.png'
+    'bolo1.png',
+    'bolo2.png',
+    'bolo3.png',
+    'bolo4.png',
+    'bolo5.png'
   ];
   currentIndex: number = 0;
   intervalId: any;
+carouselItems: any;
 
   constructor(private router: Router) {}
 
@@ -29,7 +30,7 @@ export class HighlightsCarousel implements OnInit, OnDestroy {
   }
 
   getImagePath(image: string): string {
-    return `assets/${image}`;
+    return `/${image}`;
   }
 
   startAutoSlide(): void {
@@ -47,15 +48,14 @@ export class HighlightsCarousel implements OnInit, OnDestroy {
     this.startAutoSlide();
   }
 
-  nextSlide(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    this.resetAutoSlide();
-  }
+ nextSlide(): void {
+  this.currentIndex = (this.currentIndex + 1) % this.images.length;
+}
 
-  prevSlide(): void {
-    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-    this.resetAutoSlide();
-  }
+prevSlide(): void {
+  this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+}
+
 
   goToSlide(index: number): void {
     this.currentIndex = index;
