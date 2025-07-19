@@ -2,10 +2,10 @@ import { SharedModule } from './shared/shared.module';
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing-module';
+import { AppRoutingModule } from './app.routing.module';
 import { App } from './app';
-import { CoreModule } from './core/core-module';
-import { HomeModule } from './pages/home/home-module';
+import { CoreModule } from './core/core.module';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
@@ -18,9 +18,7 @@ import { HomeModule } from './pages/home/home-module';
     CoreModule,
     HomeModule
   ],
-  providers: [
-    provideBrowserGlobalErrorListeners()
-  ],
+  providers: [],
   bootstrap: [App]
 })
 export class AppModule { }

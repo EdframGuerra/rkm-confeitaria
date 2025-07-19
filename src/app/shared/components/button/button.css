@@ -1,0 +1,15 @@
+/* Estilos base para o componente de botão, complementando o Tailwind CSS */
+
+/* O seletor 'button' aqui se refere ao botão dentro do componente app-button */
+button {
+  /* As classes do Tailwind CSS são aplicadas via [ngClass] no HTML. */
+  /* Este CSS pode ser usado para overrides ou estilos que não são utilitários do Tailwind. */
+  cursor: pointer;
+  border: none; /* Garante que não haja borda padrão do navegador */
+  outline: none; /* Remove o contorno de foco padrão */
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -4,9 +4,14 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        script: ['Pacifico', 'cursive'],
+      },
+      colors: {
+        'rosa-confeitaria': 'rgb(252, 18, 115)',
+      }
+    },
   },
   plugins: [],
 }
-
-

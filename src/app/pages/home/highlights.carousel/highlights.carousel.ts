@@ -1,23 +1,27 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, QueryList, ViewChildren, AfterViewInit, Renderer2 } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HighlightsCarouselInterface } from '../../../models/highlights.carouse.iInterface';
 
 @Component({
   selector: 'app-highlights-carousel',
   standalone: false,
-  templateUrl: './highlights-carousel.html',
-  styleUrl: './highlights-carousel.css'
+  templateUrl: './highlights.carousel.html',
+  styleUrl: './highlights.carousel.css'
 })
 export class HighlightsCarousel implements OnInit, OnDestroy {
-  images: string[] = [
-    'bolo1.png',
-    'bolo2.png',
-    'bolo3.png',
-    'bolo4.png',
-    'bolo5.png'
-  ];
+
+  images:HighlightsCarouselInterface[]= [
+    {url:'bolo1.png',alt:'Bolo confeitado'},
+    {url:'bolo2.png',alt:'Bolo confeitado'},
+    {url:'bolo3.png',alt:'Bolo confeitado'},
+    {url:'bolo4.png',alt:'Bolo confeitado'},
+    {url:'bolo5.png',alt:'Bolo confeitado'},  ];
   currentIndex: number = 0;
-  intervalId: any;
-carouselItems: any;
+  private intervalId: any;
+  carouselItems: any;
+   trackByFn(index: number, item: HighlightsCarouselInterface): string {
+    return item.url;
+  }
 
   constructor(private router: Router) {}
 

@@ -1,99 +1,92 @@
+<!-- Cabeçalho fixo com gradiente e sombra -->
 <header
-  class="sticky top-0 z-50 bg-white shadow-md flex items-center justify-between px-4 py-3"
+  class="h-44 header-bg sticky top-0 z-50  shadow-md"
 >
-  <div class="flex items-center space-x-2">
-    <div
-      class="w-14 h-14 rounded-full bg-gradient-to-br from-pink-400 to-amber-200 flex items-center justify-center shadow-lg"
-    >
-      <img src="logo-rkm.png" alt="Logo RKM Confeitaria" class="h-16 w-auto">
-    </div>
-    <h1
-      class="logo-text text-2xl bg-gradient-to-r from-pink-500 to-amber-400 bg-clip-text text-transparent"
-    >
-      RKM Confeitaria
-    </h1>
-  </div>
-
-  <!-- Botão Hamburger problema é que esta posicionado na extremdade da margem diretita-->
-  <button
-    class="md:hidden text-pink-500 focus:outline-none"
-    (click)="toggleSidebar()"
-  >
-    <i class="fas fa-bars text-2xl"></i>
-  </button>
-
-  <!-- Navegação para desktop -->
-  <!-- <nav class="hidden md:flex space-x-8">
-    <a
-      href="#destaques"
-      class="text-pink-600 font-semibold hover:text-pink-400 transition"
-      >Destaques</a
-    >
-    <a
-      href="#cardapio"
-      class="text-pink-600 font-semibold hover:text-pink-400 transition"
-      >Cardápio</a
-    >
-    <a
-      href="#encomendas"
-      class="text-pink-600 font-semibold hover:text-pink-400 transition"
-      >Encomendas</a
-    >
-    <a
-      href="#depoimentos"
-      class="text-pink-600 font-semibold hover:text-pink-400 transition"
-      >Depoimentos</a
-    >
-  </nav> -->
-
-  <!-- Backdrop -->
   <div
-    *ngIf="isSidebarOpen"
-    (click)="toggleSidebar()"
-    class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
-  ></div>
-
-  <!-- Sidebar lateral -->
-  <aside
-    class="fixed top-0 left-0 h-full w-25  shadow-lg z-50 transform transition-transform duration-300 ease-in-out md:hidden"
-    [class.translate-x-0]="isSidebarOpen"
-    [class.-translate-x-full]="!isSidebarOpen"
+    class="container mx-auto relative h-full"
   >
-    <div class="p-6 flex flex-col h-full">
+    <!-- BOTÃO HAMBÚRGUER fixo à esquerda -->
+    <div class="bsolute bottom-4 left-10 flex items-center">
       <button
-        class="self-end mb- text-pink-500 focus:outline-none"
+        class="text-pink-9000 hover:text-pink-800 focus:outline-none p-3 transition-all"
         (click)="toggleSidebar()"
+        aria-label="Abrir menu"
+        aria-expanded="isSidebarOpen"
       >
-        <i class="fas fa-times "></i>
+        <i class="fas fa-bars text-3xl"></i>
       </button>
 
-      <nav class="flex flex-col space-y-2 text-pink-600 font-semibold text-lg">
-        <a
-          (click)="toggleSidebar()"
-          href="#destaques"
-          class="hover:text-pink-400 transition"
-          >Destaques</a
-        >
-        <a
-          (click)="toggleSidebar()"
-          href="#cardapio"
-          class="hover:text-pink-400 transition"
-          >Cardápio</a
-        >
-        <a
-          (click)="toggleSidebar()"
-          href="#encomendas"
-          class="hover:text-pink-400 transition"
-          >Encomendas</a
-        >
-        <a
-          (click)="toggleSidebar()"
-          href="#depoimentos"
-          class="hover:text-pink-400 transition"
-          >Depoimentos</a
-        >
-      </nav>
-    </div>
-  </aside>
-</header>
+      <div class="absolute top-11 left-72">
+        <img src="logo-rkm.png" alt="Logo" class="h-34 w-36" />
+      </div>
 
+      <!-- Fundo escurecido ao abrir o menu lateral no mobile -->
+      <div
+        *ngIf="isSidebarOpen"
+        (click)="toggleSidebar()"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+      ></div>
+    </div>
+
+    <!-- SIDEBAR (MENU LATERAL) -->
+    <aside
+      *ngIf="isSidebarOpen"
+      class="fixed top-0 left-0 h-full w-34 bg-transparent backdrop-blur-md shadow z-50 transition duration-300"
+      [class.opacity-100]="isSidebarOpen"
+      [class.opacity-0]="!isSidebarOpen"
+    >
+      <div class="p-6 flex flex-col h-full">
+        <!-- Botão de fechar o menu lateral -->
+        <button
+          class="self-end text-pink-500 focus:outline-none mb-4"
+          (click)="toggleSidebar()"
+          aria-label="Fechar menu"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+
+        <!-- MENU DE LINKS -->
+        <nav
+          class="flex flex-col space-y-4 text-pink-600 font-semibold text-lg"
+        >
+          <a
+            (click)="toggleSidebar()"
+            href="#admin"
+            class="hover:text-pink-400 transition"
+            >Admin</a
+          >
+          <a
+            (click)="toggleSidebar()"
+            href="#home"
+            class="hover:text-pink-400 transition"
+            >Home</a
+          >
+          <a
+            (click)="toggleSidebar()"
+            href="#destaques"
+            class="hover:text-pink-400 transition"
+            >Destaques</a
+          >
+          <a
+            (click)="toggleSidebar()"
+            href="#cardapio"
+            class="hover:text-pink-400 transition"
+            >Cardápio</a
+          >
+          <a
+            (click)="toggleSidebar()"
+            href="#encomendas"
+            class="hover:text-pink-400 transition"
+            >Encomendas</a
+          >
+          <a
+            (click)="toggleSidebar()"
+            href="#depoimentos"
+            class="hover:text-pink-400 transition"
+            >Depoimentos</a
+          >
+        </nav>
+      </div>
+    </aside>
+  </div>
+</header>
