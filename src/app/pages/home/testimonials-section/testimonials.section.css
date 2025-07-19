@@ -1,0 +1,26 @@
+/* Estilos para a seção de Depoimentos */
+
+#depoimentos {
+  /* Tailwind: py-16 bg-white */
+}
+
+#depoimentos h2 {
+  /* Tailwind: text-3xl font-bold text-center text-pink-600 mb-12 */
+}
+
+/* Grade para os cards de depoimento */
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
+  /* Tailwind: grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 */
+}
+
+/* Estilos para o botão "Deixe seu depoimento" */
+.inline-block.bg-pink-500 {
+  /* Tailwind: inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition */
+}
+
+/* Estilo para a mensagem de "ainda não há depoimentos" */
+.text-center.text-gray-600 {
+  /* Tailwind: text-center text-gray-600 */
+}
+
+/* O estilo para o TestimonialCardComponent está em seu próprio arquivo CSS */

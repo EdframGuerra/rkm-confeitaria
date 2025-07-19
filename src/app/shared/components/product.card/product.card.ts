@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { InterfaceProduct } from '../../../models/interface.product';
+import { InterfaceProductCard } from '../../../models/interface.produto.card';
 
 @Component({
   selector: 'app-product-card',
@@ -8,17 +8,17 @@ import { InterfaceProduct } from '../../../models/interface.product';
   styleUrl: './product.card.css'
 })
 export class ProductCard {
-  @Input() product!: InterfaceProduct;
+  @Input() productData!: InterfaceProductCard;
 
-  @Output() onDetailsClick = new EventEmitter<InterfaceProduct>();
-  @Output() onOrderClick = new EventEmitter<InterfaceProduct>();
+  @Output() onDetailsClick = new EventEmitter<InterfaceProductCard>();
+  @Output() onOrderClick = new EventEmitter<InterfaceProductCard>();
 
   // Métodos simplificados
   showDetails() {
-    this.onDetailsClick.emit(this.product);
+    this.onDetailsClick.emit(this.productData);
   }
 
   makeOrder() {
-    this.onOrderClick.emit(this.product);
+    this.onOrderClick.emit(this.productData);
   }
 }

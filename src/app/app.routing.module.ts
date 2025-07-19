@@ -8,7 +8,9 @@ const routes: Routes = [
   },
   { path: '', redirectTo: 'home',
      pathMatch: 'full'
-  }
+  },
+  { path: 'auth', loadChildren: () => import('./pages/auth/auth-module').then(m => m.AuthModule) },
+  { path: 'cardapio', loadChildren: () => import('./pages/menu/menu.module').then(m => m.MenuModule) }
 ];
 
 @NgModule({

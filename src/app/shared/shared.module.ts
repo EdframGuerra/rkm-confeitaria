@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 import { Button } from './components/button/button';
 import { IncentiveCard } from './components/incentive.card/incentive.card';
 import { ProductCard } from './components/product.card/product.card';
+import { TestimonialCard } from './components/testimonial.card/testimonial.card';
 
 @NgModule({
   declarations: [
     Button,
     ProductCard,
-    IncentiveCard
+    IncentiveCard,
+    TestimonialCard
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { ProductCard } from './components/product.card/product.card';
     ProductCard,
     IncentiveCard,
     CommonModule,
-    RouterModule
+    RouterModule,
+    TestimonialCard
   ]
 })
 export class SharedModule { }

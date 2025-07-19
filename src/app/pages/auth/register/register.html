@@ -1,0 +1,113 @@
+<section class="py-16 bg-amber-50">
+  <div class="container mx-auto px-4">
+    <!-- Título principal da seção -->
+    <h2 class="text-4xl md:text-5xl font-bold text-center text-pink-600 mb-12">
+      Faça parte do nosso clube de doces e salgados e ganhe benefícios exclusivos!
+    </h2>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <!-- Card 1: Chamada para Cadastro e Benefícios -->
+      <div class="bg-pink-600 text-white rounded-xl shadow-lg p-8 flex flex-col justify-center min-h-[400px]">
+        <h3 class="text-3xl font-bold mb-4">Cadastre-se</h3>
+        <p class="text-lg mb-6">
+          Faça parte do nosso clube de doces e receba promoções exclusivas, novidades e descontos especiais!
+        </p>
+        <ul class="text-lg space-y-3">
+          <li class="flex items-center">
+            <i class="fas fa-gift mr-3 text-amber-200"></i>
+            15% de desconto na primeira compra
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-birthday-cake mr-3 text-amber-200"></i>
+            Cupom de aniversário
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-star mr-3 text-amber-200"></i>
+            Acesso antecipado a novos produtos
+          </li>
+        </ul>
+        <!-- Botão de cadastro, será habilitado condicionalmente -->
+        <div class="mt-8 text-center">
+          <button 
+            (click)="openRegisterFormModal()" 
+            [disabled]="!termsAccepted"
+            class="bg-white text-pink-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Finalizar Cadastro
+          </button>
+        </div>
+        <!-- Link para os termos de aceite -->
+        <p class="text-sm mt-4 text-pink-100">
+          Ao clicar em "Finalizar Cadastro", você concorda com nossos 
+          <a (click)="openTermsModal()" class="underline cursor-pointer hover:text-white">Termos e Condições</a>.
+        </p>
+      </div>
+
+      <!-- Card 2: Fotografia do Clube de Doces -->
+      <div class="rounded-xl shadow-lg overflow-hidden min-h-[400px] flex items-center justify-center">
+        <img src="clube-doces.png" alt="Clube de Doces e Salgados" class="w-full h-full object-cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal de Termos e Condições -->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" *ngIf="isTermsModalOpen">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl relative">
+    <h3 class="text-2xl font-bold text-pink-600 mb-4">Termos e Condições do Clube de Doces</h3>
+    <div class="max-h-96 overflow-y-auto text-gray-700 mb-6">
+      <p><strong>1. Aceitação dos Termos:</strong> Ao se cadastrar no Clube de Doces da RKM Confeitaria, você concorda em cumprir e estar vinculado a estes Termos e Condições. Se você não concordar com qualquer parte destes termos, não deverá se cadastrar.</p>
+      <p><strong>2. Elegibilidade:</strong> O Clube de Doces está disponível para indivíduos maiores de 18 anos. Ao se cadastrar, você declara e garante que cumpre este requisito de idade.</p>
+      <p><strong>3. Benefícios do Clube:</strong> Os membros do Clube de Doces terão acesso a descontos exclusivos (como 15% na primeira compra), cupons de aniversário, acesso antecipado a novos produtos e outras promoções que podem ser oferecidas periodicamente pela RKM Confeitaria.</p>
+      <p><strong>4. Uso dos Dados Pessoais:</strong> Seus dados pessoais fornecidos no cadastro serão utilizados para gerenciar sua conta no clube, enviar comunicações sobre promoções e novidades, e personalizar sua experiência, sempre em conformidade com nossa Política de Privacidade. Não compartilharemos seus dados com terceiros sem seu consentimento expresso.</p>
+      <p><strong>5. Comunicações:</strong> Ao se cadastrar, você concorda em receber e-mails e mensagens promocionais da RKM Confeitaria. Você pode optar por não receber essas comunicações a qualquer momento, seguindo as instruções de descadastro fornecidas nos e-mails.</p>
+      <p><strong>6. Alterações nos Termos:</strong> A RKM Confeitaria reserva-se o direito de modificar estes Termos e Condições a qualquer momento. Quaisquer alterações serão publicadas em nosso site e entrarão em vigor imediatamente após a publicação.</p>
+      <p><strong>7. Rescisão:</strong> A RKM Confeitaria pode, a seu critério, suspender ou encerrar sua participação no Clube de Doces a qualquer momento, com ou sem aviso prévio, por qualquer motivo, incluindo, mas não se limitando a, violação destes Termos.</p>
+      <p><strong>8. Limitação de Responsabilidade:</strong> A RKM Confeitaria não será responsável por quaisquer danos diretos, indiretos, incidentais, especiais ou consequenciais resultantes do uso ou da incapacidade de usar os benefícios do Clube de Doces.</p>
+      <p><strong>9. Lei Aplicável:</strong> Estes Termos e Condições serão regidos e interpretados de acordo com as leis do Brasil, sem considerar seus princípios de conflito de leis.</p>
+      <p><strong>10. Contato:</strong> Para quaisquer dúvidas sobre estes Termos e Condições ou sobre o Clube de Doces, entre em contato conosco através dos canais disponíveis em nosso site.</p>
+    </div>
+    <div class="flex justify-end gap-4">
+      <button (click)="closeTermsModal()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full transition">
+        Fechar
+      </button>
+      <button (click)="acceptTerms()" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full transition">
+        Aceitar Termos
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal do Formulário de Cadastro (aparecerá após aceitar os termos) -->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" *ngIf="isRegisterFormModalOpen">
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
+    <h3 class="text-2xl font-bold text-pink-600 mb-6 text-center">Formulário de Cadastro</h3>
+    <button class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl" (click)="closeRegisterFormModal()">×</button>
+    
+    <form (ngSubmit)="submitRegistrationForm()" #registerForm="ngForm">
+      <div class="mb-4">
+        <label for="regName" class="block text-gray-700 text-sm font-bold mb-2">Nome Completo</label>
+        <input type="text" id="regName" name="name" [(ngModel)]="registerData.name" required
+               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-pink-400">
+      </div>
+      <div class="mb-4">
+        <label for="regEmail" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+        <input type="email" id="regEmail" name="email" [(ngModel)]="registerData.email" required email
+               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-pink-400">
+      </div>
+      <div class="mb-4">
+        <label for="regPhone" class="block text-gray-700 text-sm font-bold mb-2">Telefone</label>
+        <input type="tel" id="regPhone" name="phone" [(ngModel)]="registerData.phone" required pattern="[0-9]{10,11}"
+               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-pink-400">
+      </div>
+      
+      <div class="flex items-center justify-center">
+        <button type="submit" [disabled]="!registerForm.form.valid"
+                class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full focus:outline-none focus:shadow-outline transition disabled:opacity-50 disabled:cursor-not-allowed">
+          Cadastrar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

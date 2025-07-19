@@ -1,0 +1,26 @@
+<section id="depoimentos" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-pink-600 mb-12">O que dizem nossos clientes</h2>
+        
+        <!-- Grade para exibir os cards de depoimento -->
+        <div *ngIf="fiveStarTestimonials.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Iterar sobre os depoimentos de 5 estrelas e renderizar o TestimonialCardComponent -->
+            <app-testimonial-card 
+                *ngFor="let testimonial of fiveStarTestimonials" 
+                [testimonial]="testimonial">
+            </app-testimonial-card>
+        </div>
+        <div *ngIf="fiveStarTestimonials.length === 0" class="text-center text-gray-600">
+            <p>Ainda não há depoimentos com 5 estrelas. Seja o primeiro a deixar um!</p>
+        </div>        
+    </div>
+    <!-- Botão para deixar um depoimento -->
+        <div class="text-center mt-12">
+            <button (click)="goToLeaveTestimonial()" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">
+                Deixe seu depoimento
+            </button>
+        </div>
+</section>
+
+
+

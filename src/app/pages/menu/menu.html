@@ -1,0 +1,19 @@
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-extrabold text-center text-pink-600 mb-14">
+      Nosso Cardápio Completo
+    </h2>
+
+    <!-- Aqui você pode adicionar um filtro ou categorias se desejar -->
+
+    <!-- Seção do Cardápio (reutilizando o MenuSectionComponent para exibir os cards) -->
+    <!-- Este componente já tem a lógica de agrupar os produtos -->
+    <!-- Você pode adicionar um botão "Voltar para Home" ou "Fazer Encomenda" aqui -->
+    <div class="text-center mt-12">
+      <app-product-card></app-product-card>
+      <a [routerLink]="['/encomendas']" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">
+        Faça sua Encomenda
+      </a>
+    </div>
+  </div>
+</section>

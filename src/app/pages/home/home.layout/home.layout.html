@@ -1,12 +1,40 @@
-<div class="container-fluid home-layout-container py-4">
-  <!-- Título e introdução da área Home -->
-  <div class="text-center mb-5">
-    <h1 class="display-5 fw-bold text-rosa-confeitaria">RKM Confeitaria! <br>Confeitaria artesanal feita com amor e ingredientes selecionados para tornar seus momentos mais doces </h1>
-    <p class="lead text-secondary">Explore nossos produtos e faça sua encomenda.</p>
+<div class="flex flex-col gap-8 p-4">
+  <!-- Título e subtítulo -->
+  <div class="text-center">
+    <h4 class="text-4xl font-semibold text-pink-500">RKM Confeitaria <br> </h4>
+    <p class="text-lg from-rosa-confeitaria text-pink-400">Nossos produtos são cuidadosamente preparados com ingredientes nobres e um toque de delicadeza. Mais do que doces, entregamos experiências que encantam os sentidos e transformam momentos simples em memórias inesquecíveis.</p>
   </div>
 
-  <!-- O router-outlet renderizará os componentes filhos da rota /home aqui -->
-  <!-- Por exemplo, se você navegar para /home (rota padrão), o HomeComponent (que contém o carrossel) aparecerá aqui. -->
-  <!-- Se você navegar para /home/cardapio, o MenuSectionComponent (cardápio completo) aparecerá aqui. -->
-  <router-outlet></router-outlet>
+  <!-- Carrossel -->
+  <div>
+    <app-highlights-carousel></app-highlights-carousel>
+  </div>
+
+  <!-- Três cards lado a lado -->
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <app-product-card
+     *ngFor="let product of products"
+      [productData]="product">
+    </app-product-card>
+  </div>
+  <div>
+    <app-button>Cardapio completo</app-button>
+  </div>
+
+  <!-- Dois cards lado a lado -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <app-contact-form></app-contact-form>
+    <app-incentive-card></app-incentive-card>
+  </div>
+
+  <!-- depoimentos -->
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <app-testimonial-card
+      *ngFor="let testimonial of testimonials"
+      [testimonial]="testimonial">
+    </app-testimonial-card>
+  </div>
+  <div>
+     <app-button>Deixe seu depoimento</app-button>
+  </div>
 </div>
