@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Menu } from './pages/menu/menu';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 
@@ -21,9 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations:[
-    Menu
-  ],
+  declarations:[],
   imports: [
     CommonModule,
     RouterModule.forRoot(routes),
