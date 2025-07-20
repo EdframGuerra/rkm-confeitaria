@@ -9,7 +9,6 @@ import { InterfaceProductCard } from '../../../models/interface.produto.card';
 })
 export class ProductCard {
   @Input() productData!: InterfaceProductCard;
-
   @Output() onDetailsClick = new EventEmitter<InterfaceProductCard>();
   @Output() onOrderClick = new EventEmitter<InterfaceProductCard>();
 

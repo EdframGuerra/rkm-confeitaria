@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { InterfaceTestimonialCard } from '../../../models/interface.testimonial.card';
 import { InterfaceProductCard } from '../../../models/interface.produto.card';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-layout',
@@ -10,23 +11,23 @@ import { InterfaceProductCard } from '../../../models/interface.produto.card';
 })
 export class HomeLayout {
   products: InterfaceProductCard[] = [
-  { 
+  {
     title: 'Bolo 1',
     description: 'Descrição 1',
-    price: 50, 
-    image: 'bolo1.png' 
+    price: 50,
+    image: 'bolo1.png'
   },
-  { 
+  {
     title: 'Bolo 2',
     description: 'Descrição 2',
-    price: 60, 
-    image: 'bolo2.png' 
+    price: 60,
+    image: 'bolo2.png'
   },
-  { 
+  {
     title: 'Bolo 3',
     description: 'Descrição 3',
-    price: 70, 
-    image: 'bolo3.png' 
+    price: 70,
+    image: 'bolo3.png'
   }
 ];
 
@@ -50,5 +51,21 @@ testimonials: InterfaceTestimonialCard[] = [
       message: 'Já encomendei várias vezes e sempre superam minhas expectativas!',
     }
   ];
+
+   constructor(private router: Router) { } // Injetar Router
+
+  /**
+   * Navega para a página de Cardápio Completo.
+   */
+  goToCardapioCompleto(): void {
+    this.router.navigate(['/cardapio']);
+  }
+
+  /**
+   * Navega para a página/formulário de deixar depoimento.
+   */
+  goToLeaveTestimonial(): void {
+    this.router.navigate(['/depoimentos/deixar']); // Rota para o formulário de depoimento
+  }
 
 }

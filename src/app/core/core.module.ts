@@ -15,7 +15,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     Header,
-    Footer
+    Footer,
+    RouterModule
   ]
 })
 export class CoreModule { }

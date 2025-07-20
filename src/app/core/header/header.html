@@ -45,46 +45,53 @@
           <i class="fas fa-times text-xl"></i>
         </button>
 
-        <!-- MENU DE LINKS -->
+       <!-- MENU DE LINKS -->
         <nav
           class="flex flex-col space-y-4 text-pink-600 font-semibold text-lg"
         >
+          <!-- Links com ícones e routerLink -->
           <a
             (click)="toggleSidebar()"
-            href="#admin"
-            class="hover:text-pink-400 transition"
-            >Admin</a
+            [routerLink]="['/admin']"
+            class="hover:text-pink-400 transition flex items-center space-x-3"
           >
+            <i class="fas fa-user-shield"></i> <span>Admin</span>
+          </a>
           <a
             (click)="toggleSidebar()"
-            href="#home"
-            class="hover:text-pink-400 transition"
-            >Home</a
+            [routerLink]="['/home']"
+            class="hover:text-pink-400 transition flex items-center space-x-3"
           >
+            <i class="fas fa-home"></i> <span>Home</span>
+          </a>
           <a
             (click)="toggleSidebar()"
-            href="#destaques"
-            class="hover:text-pink-400 transition"
-            >Destaques</a
+            [routerLink]="['/home']"
+            class="hover:text-pink-400 transition flex items-center space-x-3"
           >
+            <i class="fas fa-star"></i> <span>Destaques</span>
+          </a>
           <a
             (click)="toggleSidebar()"
-            href="#cardapio"
-            class="hover:text-pink-400 transition"
-            >Cardápio</a
+            [routerLink]="['/cardapio']"
+            class="hover:text-pink-400 transition flex items-center space-x-3"
           >
+            <i class="fas fa-book-open"></i> <span>Cardápio</span>
+          </a>
           <a
             (click)="toggleSidebar()"
-            href="#encomendas"
-            class="hover:text-pink-400 transition"
-            >Encomendas</a
+            [routerLink]="['/home/encomendas']"
+            class="hover:text-pink-400 transition flex items-center space-x-3"
           >
+            <i class="fas fa-shopping-basket"></i> <span>Encomendas</span>
+          </a>
           <a
             (click)="toggleSidebar()"
-            href="#depoimentos"
-            class="hover:text-pink-400 transition"
-            >Depoimentos</a
+            [routerLink]="['/home/depoimentos']"
+            class="hover:text-pink-400 transition flex items-center space-x-3"
           >
+            <i class="fas fa-comments"></i> <span>Depoimentos</span>
+          </a>
         </nav>
       </div>
     </aside>

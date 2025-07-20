@@ -7,9 +7,12 @@ import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
-  { 
-    path: '', 
-    component: Auth 
+  { path: '', component: Auth, // Auth é o layout
+    children: [
+      { path: '', redirectTo: 'register', pathMatch: 'full' }, // Redireciona para registro por padrão
+      { path: 'register', component: Register }, // Rota para o formulário de registro
+      // { path: 'admin-login', component: AdminLoginComponent }, // Rota para o login admin
+    ]
   }
 ];
 
@@ -28,3 +31,6 @@ const routes: Routes = [
   ]
 })
 export class AuthModule { }
+
+
+

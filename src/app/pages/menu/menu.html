@@ -4,16 +4,66 @@
       Nosso Cardápio Completo
     </h2>
 
-    <!-- Aqui você pode adicionar um filtro ou categorias se desejar -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+      <app-product-card
+        *ngFor="let product of allProducts; trackBy: trackByFn"
+        [productData]="product"
+        (onDetailsClick)="openProductModal($event)"
+        (onOrderClick)="openWhatsAppOrder($event)"
+      ></app-product-card>
+    </div>
 
-    <!-- Seção do Cardápio (reutilizando o MenuSectionComponent para exibir os cards) -->
-    <!-- Este componente já tem a lógica de agrupar os produtos -->
-    <!-- Você pode adicionar um botão "Voltar para Home" ou "Fazer Encomenda" aqui -->
     <div class="text-center mt-12">
-      <app-product-card></app-product-card>
-      <a [routerLink]="['/encomendas']" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">
+      <a
+        [routerLink]="['/encomendas']"
+        class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition"
+      >
         Faça sua Encomenda
       </a>
     </div>
   </div>
 </section>
+
+<div
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  *ngIf="selectedProduct"
+>
+  <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md relative">
+    <button
+      class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-2xl font-bold"
+      (click)="closeProductModal()"
+    >
+      ×
+    </button>
+
+    <h3 class="text-2xl font-bold text-pink-600 mb-4">{{ selectedProduct.title }}</h3>
+
+    <img
+      [src]="selectedProduct.image"
+      alt="{{ selectedProduct.title }}"
+      class="w-full h-56 object-cover rounded-md mb-4"
+    />
+
+    <p class="text-gray-700 mb-2">{{ selectedProduct.description }}</p>
+    <p class="text-pink-600 font-bold mb-2">
+      Preço: R$ {{ selectedProduct.price | number: '1.2-2' }}
+    </p>
+
+    <div class="mt-6 text-right">
+      <button
+        (click)="closeProductModal()"
+        class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full transition mr-2"
+      >
+        Fechar
+      </button>
+
+      <a
+        [routerLink]="['/encomendas']"
+        (click)="closeProductModal()"
+        class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full transition"
+      >
+        Encomendar Agora
+      </a>
+    </div>
+  </div>
+</div>

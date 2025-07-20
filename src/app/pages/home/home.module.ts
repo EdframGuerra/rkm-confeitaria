@@ -8,7 +8,7 @@ import { HighlightsCarousel } from './highlights.carousel/highlights.carousel';
 import { Home } from './home';
 import { HomeLayout } from './home.layout/home.layout';
 import { HomeRoutingModule } from './home.routing.module';
-import { TestimonialsSection } from './testimonials-section/testimonials.section';
+import { TestimonialsSection } from './testimonials.section/testimonials.section';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { TestimonialsSection } from './testimonials-section/testimonials.section
     HighlightsCarousel,
     HomeLayout,
     ContactForm,
-    TestimonialsSection,
+    TestimonialsSection
 
   ],
   imports: [

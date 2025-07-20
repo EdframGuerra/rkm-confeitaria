@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routing.module';
 import { App } from './app';
 import { CoreModule } from './core/core.module';
-import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,6 @@ import { HomeModule } from './pages/home/home.module';
     AppRoutingModule,
     SharedModule,
     CoreModule,
-    HomeModule
   ],
   providers: [],
   bootstrap: [App]

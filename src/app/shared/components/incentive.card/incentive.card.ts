@@ -9,14 +9,9 @@ import { Router } from '@angular/router';
   templateUrl: './incentive.card.html',
   styleUrl: './incentive.card.css'
 })
-export class IncentiveCard implements OnInit {
-  
-  // Estados dos modais
-  isTermsModalOpen: boolean = false;
-  // Removido: isRegisterFormModalOpen: boolean = false; // Não é mais necessário, pois redirecionamos.
-
-  // Estado de aceite dos termos
-  termsAccepted: boolean = false;
+export class IncentiveCard implements OnInit { // Corrigido para IncentiveCardComponent
+  // Removido: isTermsModalOpen: boolean = false;
+  // Removido: termsAccepted: boolean = false;
 
   constructor(private router: Router) { } // Injetar Router
 
@@ -25,35 +20,13 @@ export class IncentiveCard implements OnInit {
   }
 
   /**
-   * Abre o modal de Termos e Condições.
-   */
-  openTermsModal(): void {
-    this.isTermsModalOpen = true;
-  }
-
-  /**
-   * Fecha o modal de Termos e Condições.
-   */
-  closeTermsModal(): void {
-    this.isTermsModalOpen = false;
-  }
-
-  /**
-   * Aceita os termos e habilita o botão "Cadastre-se".
-   */
-  acceptTerms(): void {
-    this.termsAccepted = true;
-    this.closeTermsModal(); // Fecha o modal de termos
-  }
-
-  /**
    * Redireciona para a página de cadastro (/auth/register).
    * Chamado ao clicar no botão "Cadastre-se".
    */
   goToRegisterPage(): void {
-    
+    this.router.navigate(['/auth/register']);
   }
 
-  // Removido: openRegisterFormModal(), closeRegisterFormModal(), submitRegistrationForm()
-  // Não são mais necessários, pois o formulário de cadastro está em outra página.
+  // Removido: openTermsModal(), closeTermsModal(), acceptTerms()
+  // Toda a lógica de termos e condições será tratada na página de cadastro.
 }

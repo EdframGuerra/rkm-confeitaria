@@ -2,15 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InterfaceTestimonialCard } from '../../../models/interface.testimonial.card';
 
-
-
 @Component({
   selector: 'app-testimonials-section',
-  standalone: false,
+  standalone:false,
   templateUrl: './testimonials.section.html',
-  styleUrl: './testimonials.section.css'
+  styleUrls: ['./testimonials.section.ts']
 })
-export class TestimonialsSection  implements OnInit {
+export class TestimonialsSection implements OnInit {
   allTestimonials: InterfaceTestimonialCard[] = []; // Todos os depoimentos
   fiveStarTestimonials: InterfaceTestimonialCard[] = []; // Depoimentos filtrados com 5 estrelas
 
